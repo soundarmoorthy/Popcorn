@@ -8,6 +8,7 @@ namespace Inmeta.VSGalleryService.Models
     {
         public string Id { get; set; }
         public string Title { get; set; }
+        public string MoreInfo { get; set; }
         public string Summary { get; set; }
         public DateTime Published { get; set; }
         public DateTime Updated { get; set; }

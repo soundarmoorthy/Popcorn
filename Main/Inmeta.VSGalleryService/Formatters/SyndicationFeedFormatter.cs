@@ -99,7 +99,10 @@ namespace Inmeta.VSGalleryService.Formatters
             item.Summary = new TextSyndicationContent(u.Summary);
             item.Authors.Add(new SyndicationPerson {Name = u.Author.Name});
             item.PublishDate = u.Published;
-
+            if (!string.IsNullOrEmpty(u.MoreInfo))
+            {
+                item.Links.Add(SyndicationLink.CreateAlternateLink(new Uri(u.MoreInfo), "More Information"));
+            }
             item.ElementExtensions.Add(new XElement(XName.Get("Vsix", VsixNamespace),
                                                     new XElement(XName.Get("Id", VsixNamespace), u.Vsix.Id),
                                                     new XElement(XName.Get("Version", VsixNamespace), u.Vsix.Version)).

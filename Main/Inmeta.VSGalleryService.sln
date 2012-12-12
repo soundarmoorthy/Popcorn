@@ -5,23 +5,23 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inmeta.VSIX", "Inmeta.VSIX\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inmeta.VSGalleryService", "Inmeta.VSGalleryService\Inmeta.VSGalleryService.csproj", "{A2BAF3A7-5B9F-4D8D-BA00-5358038D6769}"
 EndProject
-Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "Inmeta.VSGalleryService.Install", "Inmeta.VSGalleryService.Install\Inmeta.VSGalleryService.Install.wixproj", "{E4734297-66C9-4CCB-8D40-AE999280D97F}"
+Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "Inmeta.VSGalleryService.Setup", "Inmeta.VSGalleryService.Setup\Inmeta.VSGalleryService.Setup.wixproj", "{E4734297-66C9-4CCB-8D40-AE999280D97F}"
 EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
 		SccNumberOfProjects = 4
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs08
-		SccProjectUniqueName0 = Inmeta.VSGalleryService.Install\\Inmeta.VSGalleryService.Install.wixproj
-		SccProjectName0 = Inmeta.VSGalleryService.Install
-		SccLocalPath0 = Inmeta.VSGalleryService.Install
-		SccLocalPath1 = .
-		SccProjectUniqueName2 = Inmeta.VSGalleryService\\Inmeta.VSGalleryService.csproj
-		SccProjectName2 = Inmeta.VSGalleryService
-		SccLocalPath2 = Inmeta.VSGalleryService
-		SccProjectUniqueName3 = Inmeta.VSIX\\Inmeta.VSIX.csproj
-		SccProjectName3 = Inmeta.VSIX
-		SccLocalPath3 = Inmeta.VSIX
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Inmeta.VSGalleryService\\Inmeta.VSGalleryService.csproj
+		SccProjectName1 = Inmeta.VSGalleryService
+		SccLocalPath1 = Inmeta.VSGalleryService
+		SccProjectUniqueName2 = Inmeta.VSIX\\Inmeta.VSIX.csproj
+		SccProjectName2 = Inmeta.VSIX
+		SccLocalPath2 = Inmeta.VSIX
+		SccProjectUniqueName3 = Inmeta.VSGalleryService.Setup\\Inmeta.VSGalleryService.Setup.wixproj
+		SccProjectName3 = Inmeta.VSGalleryService.Setup
+		SccLocalPath3 = Inmeta.VSGalleryService.Setup
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

@@ -121,6 +121,7 @@ namespace Inmeta.VSGalleryService.Controllers
                             Version = manifest.Metadata.Identity.Version
                         };
                     entry.Summary = manifest.Metadata.Description;
+                    entry.MoreInfo = manifest.Metadata.MoreInfo;
                 }
             }
             return entry;
@@ -140,6 +141,7 @@ namespace Inmeta.VSGalleryService.Controllers
                 entry.Author = new FeedEntryAuthor {Name = vsix.Identifier.Author};
                 entry.Content = new FeedEntryContent {Src = BuildUri(category,fileName), Type = "octet/stream"};
                 entry.Vsix = new FeedEntryVsix {Id = vsix.Identifier.Id, Version = vsix.Identifier.Version};
+                entry.MoreInfo = vsix.References.Any() ? vsix.References.First().MoreInfoUrl : string.Empty;
                 entry.Summary = vsix.Identifier.Description;
             }
             return entry;
