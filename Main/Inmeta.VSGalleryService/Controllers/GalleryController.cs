@@ -52,7 +52,7 @@ namespace Inmeta.VSGalleryService.Controllers
                 return new HttpResponseMessage(HttpStatusCode.NotFound);
 
             var result = new HttpResponseMessage(HttpStatusCode.OK);
-            var stream = new FileStream(extensionPath, FileMode.Open);
+            var stream = new FileStream(extensionPath, FileMode.Open, FileAccess.Read);
             result.Content = new StreamContent(stream);
             result.Content.Headers.ContentType = new MediaTypeHeaderValue("application/vsix");
 
