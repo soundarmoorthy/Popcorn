@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <setParameter name="IIS Web Application Name" value="Default Web Site/InmetaGallery" />
+  <setParameter name="InmetaGallery-Web.config Connection String" value="Data Source=localhost; Initial Catalog=InmetaGallery; Integrated Security=True; MultipleActiveResultSets=True" />
+</parameters>
