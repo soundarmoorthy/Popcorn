@@ -157,7 +157,11 @@
     <Compile Include="HomeController.generated.cs">
       <DependentUpon>T4MVC.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ExtensionViewModel.cs" />
     <Compile Include="Models\ReleasesViewModel.cs" />
+    <Compile Include="Models\StarRating.cs" />
+    <Compile Include="Models\UploadExtensionModel.cs" />
+    <Compile Include="Models\VsixRequiredAttribute.cs" />
     <Compile Include="MultipleButtonAttribute.cs" />
     <Compile Include="OrderByDirection.cs" />
     <Compile Include="OrderByEnum.cs" />

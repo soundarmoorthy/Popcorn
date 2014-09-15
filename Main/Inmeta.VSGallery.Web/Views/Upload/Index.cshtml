@@ -26,7 +26,7 @@
         {
             <fieldset>
                 <p>
-                    @Html.TextBoxFor(m => m.File, new { type = "file"})
+                    @Html.TextBoxFor(m => m.File, new { type = "file", @class = "UploadFileName" })
                     @Html.ValidationMessageFor(m => m.File)
                 </p>
 
