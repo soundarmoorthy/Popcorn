@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.ServiceModel;
 using System.ServiceModel.Activation;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Galleries.Domain.Model;
 using GallerySVC;
@@ -109,8 +110,11 @@ namespace Inmeta.VSGallery.Web
             string orderByClause,
             int? skip,
             int? take,
-            Dictionary<string, string> requestContext)
+            Dictionary<string, string> requestContext)        
         {
+            //Check for vsix specific search. VS does this when checking for updates. If we don't return only the matching vsix, the update functionality in VS doesn't work properly
+            var vsixid = ParseVsixId(whereClause);
+
             var orderBy = OrderByEnum.Ranking;
 
             if (orderByClause.Contains("Rating"))
@@ -133,7 +137,11 @@ namespace Inmeta.VSGallery.Web
             {
                 IEnumerable<Model.Release> releases = null;
 
-                if (orderBy == OrderByEnum.DownloadCount)
+                if (!String.IsNullOrEmpty(vsixid))
+                {
+                    releases = ctx.ReleasesWithStuff.ToList().Where(r => r.Extension.VsixId == vsixid);
+                }
+                else if (orderBy == OrderByEnum.DownloadCount)
                 {
                     if (orderByDirection == OrderByDirection.Desc)
                         releases = ctx.ReleasesWithStuff.OrderByDescending(r => r.DownloadCount);
@@ -142,7 +150,7 @@ namespace Inmeta.VSGallery.Web
                         releases = ctx.ReleasesWithStuff.OrderBy(r => r.DownloadCount);
                     }
                 }
-                if (orderBy == OrderByEnum.Rating || orderBy == OrderByEnum.Ranking)
+                else if (orderBy == OrderByEnum.Rating || orderBy == OrderByEnum.Ranking)
                 {
                     if (orderByDirection == OrderByDirection.Desc)
                         releases = ctx.ReleasesWithStuff.ToList().OrderByDescending(r => r.GetAverageRating());
@@ -151,7 +159,7 @@ namespace Inmeta.VSGallery.Web
                         releases = ctx.ReleasesWithStuff.ToList().OrderBy(r => r.GetAverageRating());
                     }
                 }
-                if (orderBy == OrderByEnum.Name)
+                else if (orderBy == OrderByEnum.Name)
                 {
                     if (orderByDirection == OrderByDirection.Asc)
                         releases = ctx.ReleasesWithStuff.ToList().OrderByDescending(r => r.Extension.Name);
@@ -165,12 +173,25 @@ namespace Inmeta.VSGallery.Web
                     releases = ctx.ReleasesWithStuff;
 
                 result.TotalCount = ctx.ReleasesWithStuff.Count();
+                //We should find a way to get the base uri for the service, ugly hack ahead
                 var host = OperationContext.Current.IncomingMessageHeaders.To.AbsoluteUri;
                 var root = host.Replace("GalleryService.svc", "");
                 result.Releases = releases.ToList().Select(r => new Release(r, root)).ToArray();
             }
 
             return result;
+        }
+
+        private static string ParseVsixId(string whereClause)
+        {
+            string vsixid = null;
+            Match match = Regex.Match(whereClause, @"Project\.Metadata\['VsixID'\] = '(?<vsixid>.*?)'", RegexOptions.IgnoreCase);
+
+            if (match.Success)
+            {
+                vsixid = match.Groups["vsixid"].Value;
+            }
+            return vsixid;
         }
 
         public Task<ReleaseQueryResult> SearchReleases2Async(
