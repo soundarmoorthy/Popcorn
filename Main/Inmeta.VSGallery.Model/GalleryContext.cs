@@ -42,7 +42,7 @@ namespace Inmeta.VSGallery.Model
 
         public Extension GetExtensionByVsixId(string vsixId)
         {
-            return this.Extensions.Include(e => e.Release).FirstOrDefault(e => e.VsixId == vsixId);
+            return Extensions.Include(e => e.Release).FirstOrDefault(e => e.VsixId == vsixId);
         }
 
         public void DeleteExtension(string vsixId)

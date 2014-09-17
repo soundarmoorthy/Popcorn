@@ -1,4 +1,4 @@
-﻿namespace GallerySVC
+﻿namespace Inmeta.VSGallery.Web
 {
     public enum OrderByDirection
     {

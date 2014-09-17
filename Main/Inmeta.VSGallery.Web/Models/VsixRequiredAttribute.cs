@@ -16,7 +16,7 @@ namespace Inmeta.VSGallery.Web.Models
                 }
                 return true;
             }
-            return base.IsValid(value);
+            return false;
         }
     }
 }

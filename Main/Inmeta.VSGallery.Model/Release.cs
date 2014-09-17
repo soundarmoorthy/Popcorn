@@ -23,27 +23,27 @@ namespace Inmeta.VSGallery.Model
 
         internal void AddRating(int rating)
         {
-            this.Ratings.Add(new ReleaseRating(this, rating));
+            Ratings.Add(new ReleaseRating(this, rating));
         }
 
         public Release()
         {
-            this.Ratings = new List<ReleaseRating>();
+            Ratings = new List<ReleaseRating>();
         }
 
         public Release(Project project, Extension newExtension)
         {
-            this.Project = project;
-            this.Extension = newExtension;
-            this.DownloadCount = 0;
+            Project = project;
+            Extension = newExtension;
+            DownloadCount = 0;
         }
 
         public double GetAverageRating()
         {
-            if (!this.Ratings.Any())
+            if (!Ratings.Any())
                 return 0;
 
-            return this.Ratings.Average(r => r.Rating);
+            return Ratings.Average(r => r.Rating);
         }
     }
 }

@@ -19,8 +19,8 @@ namespace Inmeta.VSGallery.Model
 
         public ReleaseRating(Release e, int rating)
         {
-            this.Release = e;
-            this.Rating = rating;
+            Release = e;
+            Rating = rating;
         }
     }
 }

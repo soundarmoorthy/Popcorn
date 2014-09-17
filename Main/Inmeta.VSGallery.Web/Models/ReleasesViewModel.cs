@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using Inmeta.VSGallery.Model;
 
@@ -18,12 +17,12 @@ namespace Inmeta.VSGallery.Web.Models
         }
         public ReleasesViewModel(IEnumerable<ReleaseViewModel> releases)
         {
-            this.Releases = releases;
+            Releases = releases;
         }
 
         public ReleasesViewModel(IEnumerable<Release> releases)
         {
-            this.Releases = releases.Select(e => new ReleaseViewModel(e));
+            Releases = releases.Select(e => new ReleaseViewModel(e));
         }
     }
 

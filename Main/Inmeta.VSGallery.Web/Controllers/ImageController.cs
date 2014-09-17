@@ -4,7 +4,7 @@ using System.Web.Http;
 
 namespace Inmeta.VSGallery.Web.Controllers
 {
-    using Inmeta.VSGallery.Model;
+    using Model;
 
     public class IconController : ApiController
     {

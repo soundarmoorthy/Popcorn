@@ -46,8 +46,8 @@ namespace Inmeta.VSGallery.Model
                     {"VsixId", VsixId},
                     {"VsixVersion", VsixVersion},
                     {"Type", "Tool"},
-                    {"DownloadUrl", this.DownloadUrl(baseUrl) },
-                    {"DownloadUpdateUrl", this.DownloadUrl(baseUrl)},
+                    {"DownloadUrl", DownloadUrl(baseUrl) },
+                    {"DownloadUpdateUrl", DownloadUrl(baseUrl)},
                     {"Author", Author},
                     {"PreviewImage", baseUrl + "/api/PreviewImage?vsixId=" + VsixId},
                     {"Icon", baseUrl + "/api/Icon?vsixId=" + VsixId }

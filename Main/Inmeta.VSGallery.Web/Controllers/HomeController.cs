@@ -28,7 +28,8 @@ namespace Inmeta.VSGallery.Web.Controllers
 
                 using (var ctx = new GalleryContext())
                 {
-                    var extensions = ctx.ReleasesWithStuff.Where(r => r.Extension.Name.Contains(model.SearchText) || r.Extension.Description.Contains(model.SearchText));
+                    ReleasesViewModel m = model;
+                    var extensions = ctx.ReleasesWithStuff.Where(r => r.Extension.Name.Contains(m.SearchText) || r.Extension.Description.Contains(m.SearchText));
                     model = new ReleasesViewModel(extensions.ToList());
                 }
             }

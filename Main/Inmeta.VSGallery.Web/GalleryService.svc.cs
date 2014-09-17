@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
-using System.IO;
 using System.Linq;
 using System.ServiceModel;
 using System.ServiceModel.Activation;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Galleries.Domain.Model;
-using GallerySVC;
 using Inmeta.VSGallery.Model;
 using VsGallery.WebServices;
 using Release = Galleries.Domain.Model.Release;
@@ -52,10 +50,9 @@ namespace Inmeta.VSGallery.Web
 
         public IdeCategory[] GetRootCategories(string cultureName)
         {
-            return new IdeCategory[3]
+            return new[]
                    {
-                       new IdeCategory() { Title = "Controls" }, new IdeCategory(){Title="Templates"},
-                       new IdeCategory() {Title = "Tools"}
+                       new IdeCategory { Title = "Controls" }, new IdeCategory {Title="Templates"},new IdeCategory {Title = "Tools"}
                    };
         }
 
@@ -82,11 +79,7 @@ namespace Inmeta.VSGallery.Web
 
         public IdeCategory[] GetRootCategories2(Dictionary<string, string> requestContext)
         {
-            return new IdeCategory[3]
-                   {
-                       new IdeCategory() { Title = "Controls" }, new IdeCategory(){Title="Templates"},
-                       new IdeCategory() {Title = "Tools"}
-                   };
+            return GetRootCategories(null);
         }
 
         public Task<IdeCategory[]> GetRootCategories2Async(Dictionary<string, string> requestContext)

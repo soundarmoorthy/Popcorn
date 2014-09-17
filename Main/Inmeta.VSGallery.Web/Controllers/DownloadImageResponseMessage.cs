@@ -1,5 +1,4 @@
-﻿using System.IO;
-using System.Net;
+﻿using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 
@@ -11,7 +10,7 @@ namespace Inmeta.VSGallery.Web.Controllers
     {
         public DownloadImageResponseMessage(byte[] imageContent, string name)
         {
-            this.StatusCode = HttpStatusCode.OK;
+            StatusCode = HttpStatusCode.OK;
             Content = new ByteArrayContent(imageContent);
             Content.Headers.ContentType = new MediaTypeHeaderValue(MimeMapping.GetMimeMapping(name));
         }

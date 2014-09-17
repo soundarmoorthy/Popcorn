@@ -10,11 +10,11 @@ namespace Inmeta.VSGallery.Web.Controllers
     {
         public DownloadExtensionResponseMessage(Extension extension)
         {
-            this.StatusCode = HttpStatusCode.OK;
+            StatusCode = HttpStatusCode.OK;
             var stream = new MemoryStream(extension.Content);
-            this.Content = new StreamContent(stream);
-            this.Content.Headers.ContentType = new MediaTypeHeaderValue("application/vsix");
-            this.Content.Headers.ContentDisposition = new ContentDispositionHeaderValue("attachment")
+            Content = new StreamContent(stream);
+            Content.Headers.ContentType = new MediaTypeHeaderValue("application/vsix");
+            Content.Headers.ContentDisposition = new ContentDispositionHeaderValue("attachment")
             {
                 FileName = extension.Name
             };

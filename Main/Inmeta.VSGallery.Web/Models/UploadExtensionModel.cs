@@ -10,8 +10,8 @@ namespace Inmeta.VSGallery.Web.Models
         public HttpPostedFileBase File { get; set; }
         public byte[] ReadFileContent()
         {
-            var content = new byte[this.File.ContentLength];
-            this.File.InputStream.Read(content, 0, content.Length);
+            var content = new byte[File.ContentLength];
+            File.InputStream.Read(content, 0, content.Length);
             return content;
         }
     }

@@ -13,7 +13,12 @@ namespace Inmeta.VSGallery.Web.Controllers
             using (var ctx = new GalleryContext())
             {
                 var e = ctx.ExtensionsWithStuff.First(ex => ex.VsixId == vsixId);
-                return View(new ExtensionViewModel(e, e.Release.Project.Description, e.Release.GetAverageRating(), this.Request.Url.ToString() ));
+                if (Request.Url == null)
+                {
+                    throw new ArgumentException("Could not get Request Url");    
+                }
+
+                return View(new ExtensionViewModel(e, e.Release.Project.Description, e.Release.GetAverageRating(), Request.Url.ToString()));                
             }
         }
 

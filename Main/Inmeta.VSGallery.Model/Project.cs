@@ -21,9 +21,9 @@ namespace Inmeta.VSGallery.Model
         }
         public Project(string title, string description)
         {
-            this.Title = title;
-            this.Description = description;
-            this.ModifiedDate = DateTime.Now;
+            Title = title;
+            Description = description;
+            ModifiedDate = DateTime.Now;
         }
 
     }
