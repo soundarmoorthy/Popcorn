@@ -52,7 +52,7 @@ internal partial class T4MVC_System_Web_Mvc_ActionResult : System.Web.Mvc.Action
         this.InitMVCT4Result(area, controller, action, protocol);
     }
      
-    public override void ExecuteResult(System.Web.Mvc.ControllerContext context) { }
+    public override void ExecuteResult(System.Web.Mvc.ControllerContext x) { }
     
     public string Controller { get; set; }
     public string Action { get; set; }
@@ -93,6 +93,7 @@ namespace Links
         public static readonly string Site_css = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/Site.min.css") ? Url("Site.min.css") : Url("Site.css");
              
         public static readonly string star_gif = Url("star.gif");
+        public static readonly string studio_banner_jpg = Url("studio-banner.jpg");
         public static readonly string upload_jpg = Url("upload.jpg");
         public static readonly string upload_png = Url("upload.png");
     }

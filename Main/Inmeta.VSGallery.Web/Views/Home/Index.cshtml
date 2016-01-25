@@ -1,6 +1,6 @@
 ﻿@model Inmeta.VSGallery.Web.Models.ReleasesViewModel
 @{
-    ViewBag.Title = "Inmeta Visual Studio Extension Gallery";
+    ViewBag.Title = "Atmel Studio Extension Gallery";
 }
 <head>
     <title>@ViewBag.Title</title>
@@ -10,9 +10,11 @@
     <link href='~/Content/jquery.rating.css' type="text/css" rel="stylesheet" />
 </head>
 <div>
-    <h1>Inmeta Visual Studio Extension Gallery</h1>
+    <h1>Atmel Studio Extension Gallery</h1>
+    <img src="~/Content/studio-banner.jpg" />
 </div>
 
+<br />
 <div class="SearchFrame">
 
 @using (Html.BeginForm(MVC.Home.ActionNames.Search, MVC.Home.Name))
@@ -20,7 +22,7 @@
     <table>
         <tbody>
             <tr>
-                <td style="width:480px">@Html.TextBoxFor(m => m.SearchText, new { @class = "SearchBox" })</td>
+                <td style="width:480px;">@Html.TextBoxFor(m => m.SearchText, new { @class = "SearchBox" })</td>
                 <td><input id="search" type="submit" class="SearchIcon" value="" /></td>
                 <td style="width:90%"></td>
                 <td><img src="~/Content/upload.png" width="30px"/></td>

@@ -6,7 +6,7 @@ namespace Inmeta.VSGallery.Web.Models
     public class UploadExtensionModel
     {
         [Required]
-        [VsixRequired(ErrorMessage = "You must select a valid Vsix file")]
+        [ValidExtensionRequired(ErrorMessage = "You must select a valid vsix or msi file")]
         public HttpPostedFileBase File { get; set; }
         public byte[] ReadFileContent()
         {
