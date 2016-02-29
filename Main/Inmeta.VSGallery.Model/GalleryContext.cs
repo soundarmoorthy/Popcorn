@@ -7,7 +7,7 @@ namespace Inmeta.VSGallery.Model
     public class GalleryContext : DbContext
     {
         public GalleryContext()
-            : base("InmegaGallery")
+            : base("InmetaGallery")
         {
         }
 
